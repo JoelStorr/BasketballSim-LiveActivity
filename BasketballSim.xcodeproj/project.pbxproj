@@ -18,6 +18,8 @@
 		402B0CAA2AE7D71D00322B04 /* LiveActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B0CA92AE7D71D00322B04 /* LiveActivityView.swift */; };
 		402B0CAB2AE7D8C500322B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED67D6252917E3520097D139 /* Assets.xcassets */; };
 		402B0CAC2AE7D98900322B04 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67D6352917E3E40097D139 /* Image+Ext.swift */; };
+		402B0CAE2AE7E12B00322B04 /* GameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B0CAD2AE7E12B00322B04 /* GameAttributes.swift */; };
+		402B0CAF2AE7E12B00322B04 /* GameAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B0CAD2AE7E12B00322B04 /* GameAttributes.swift */; };
 		ED67D6222917E3510097D139 /* BasketballSimApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED67D6212917E3510097D139 /* BasketballSimApp.swift */; };
 		ED67D6262917E3520097D139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED67D6252917E3520097D139 /* Assets.xcassets */; };
 		ED67D6292917E3520097D139 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED67D6282917E3520097D139 /* Preview Assets.xcassets */; };
@@ -64,6 +66,7 @@
 		402B0C9E2AE7CBC100322B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		402B0CA02AE7CBC100322B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		402B0CA92AE7D71D00322B04 /* LiveActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityView.swift; sourceTree = "<group>"; };
+		402B0CAD2AE7E12B00322B04 /* GameAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAttributes.swift; sourceTree = "<group>"; };
 		ED67D61E2917E3510097D139 /* BasketballSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasketballSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED67D6212917E3510097D139 /* BasketballSimApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketballSimApp.swift; sourceTree = "<group>"; };
 		ED67D6252917E3520097D139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 				ED67D63B2917E4210097D139 /* GameSimulator.swift */,
 				ED67D6392917E4110097D139 /* GameState.swift */,
 				ED67D6372917E3FF0097D139 /* Team.swift */,
+				402B0CAD2AE7E12B00322B04 /* GameAttributes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +287,7 @@
 			files = (
 				402B0CAA2AE7D71D00322B04 /* LiveActivityView.swift in Sources */,
 				402B0C9D2AE7CBBF00322B04 /* GameWidget.swift in Sources */,
+				402B0CAF2AE7E12B00322B04 /* GameAttributes.swift in Sources */,
 				402B0CA82AE7D54000322B04 /* GameState.swift in Sources */,
 				402B0C9B2AE7CBBF00322B04 /* GameLiveActivity.swift in Sources */,
 				402B0C992AE7CBBF00322B04 /* GameWidgetBundle.swift in Sources */,
@@ -294,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402B0CAE2AE7E12B00322B04 /* GameAttributes.swift in Sources */,
 				ED67D6302917E37C0097D139 /* GameView.swift in Sources */,
 				ED67D6362917E3E40097D139 /* Image+Ext.swift in Sources */,
 				ED67D6322917E39D0097D139 /* ButtonStyles.swift in Sources */,
@@ -512,6 +518,7 @@
 				DEVELOPMENT_TEAM = M7D3GWZL49;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -544,6 +551,7 @@
 				DEVELOPMENT_TEAM = M7D3GWZL49;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
