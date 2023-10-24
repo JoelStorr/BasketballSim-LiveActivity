@@ -12,69 +12,93 @@ import SwiftUI
 struct GameAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
-        var emoji: String
+        var gameState: GameState
+        
+        // Fixed non-changing properties about your activity go here!
+        var homeTeam: String
+        var awayTeam: String
     }
-
-    // Fixed non-changing properties about your activity go here!
-    var name: String
 }
 
 struct GameLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: GameAttributes.self) { context in
             // Lock screen/banner UI goes here
-            VStack {
-                Text("Hello \(context.state.emoji)")
-            }
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
-
+            LiveActivityView()
+            
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    HStack{
+                        Image("warriors")
+                            .teamLogoModifier(frame: 40)
+                        
+                        Text("100")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                    }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
+                    HStack{
+                        Text("88")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                        Image("bulls")
+                            .teamLogoModifier(frame: 40)
+                    }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.emoji)")
-                    // more content
+                    HStack{
+                        Image("warriors")
+                            .teamLogoModifier(frame: 20)
+                        Text("S. Curry drains a 3")
+                    }
                 }
                 DynamicIslandExpandedRegion(.center) {
-                    Text("Center \(context.state.emoji)")
-                    // more content
+                    Text("5:24 3Q")
                 }
             } compactLeading: {
-                Text("L")
+                HStack{
+                    Image("warriors")
+                        .teamLogoModifier()
+                    Text("100")
+                        .fontWeight(.semibold)
+                }
             } compactTrailing: {
-                Text("T \(context.state.emoji)")
+                HStack{
+                    Text("88")
+                        .fontWeight(.semibold)
+                    Image("bulls")
+                        .teamLogoModifier()
+                }
             } minimal: {
-                Text(context.state.emoji)
+                Image("warriors")
+                    .teamLogoModifier()
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
         }
     }
+    
 }
 
-extension GameAttributes {
-    fileprivate static var preview: GameAttributes {
-        GameAttributes(name: "World")
-    }
-}
-
-extension GameAttributes.ContentState {
-    fileprivate static var smiley: GameAttributes.ContentState {
-        GameAttributes.ContentState(emoji: "😀")
-     }
-     
-     fileprivate static var starEyes: GameAttributes.ContentState {
-         GameAttributes.ContentState(emoji: "🤩")
-     }
-}
+//extension GameAttributes {
+//    fileprivate static var preview: GameAttributes {
+//        GameAttributes()
+//    }
+//}
+//
+//extension GameAttributes.ContentState {
+//    fileprivate static var smiley: GameAttributes.ContentState {
+//        GameAttributes.ContentState()
+//     }
+//
+//     fileprivate static var starEyes: GameAttributes.ContentState {
+//         GameAttributes.ContentState()
+//     }
+//}
 
 //#Preview("Notification", as: .content, using: GameAttributes.preview) {
 //   GameLiveActivity()
