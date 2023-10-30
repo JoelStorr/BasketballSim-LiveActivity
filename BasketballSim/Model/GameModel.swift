@@ -20,38 +20,36 @@ final class GameModel: ObservableObject, GameSimulatorDelegate {
         simulator.delegate = self
     }
     // Live Activity code goes here
-    var liveActivity: Activity<GameAttributes>? = nil
-    
-    //Starts the Live Activity
-    func startingLiveActivity(){
-        
-        let attributes = GameAttributes(homeTeam: "warriors" , awayTeam: "bulls")
+    var liveActivity: Activity<GameAttributes>?
+
+    // Starts the Live Activity
+    func startingLiveActivity() {
+
+        let attributes = GameAttributes(homeTeam: "warriors", awayTeam: "bulls")
         let currentGameState = GameAttributes.ContentState(gameState: gameState)
-        
-        
-        do{
-            //attributes are the Static data
-            //content is the initial state
+
+        do {
+            // attributes are the Static data
+            // content is the initial state
             liveActivity = try Activity.request(attributes: attributes, contentState: currentGameState)
-        }catch{
+        } catch {
             print(error.localizedDescription)
         }
     }
-    
-    
-    //Updates the Live Activity
+
+    // Updates the Live Activity
     func didUpdate(gameState: GameState) {
         self.gameState = gameState
-        
-        //Updates the Activity UI
-        Task{
+
+        // Updates the Activity UI
+        Task {
             await liveActivity?.update(using: .init(gameState: gameState))
         }
     }
 
-    //Ends the Live Activity
+    // Ends the Live Activity
     func didCompleteGame() {
-        Task{
+        Task {
             await liveActivity?.end(using: .init(gameState: simulator.endGame()), dismissalPolicy: .default)
         }
     }

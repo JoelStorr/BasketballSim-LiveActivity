@@ -9,30 +9,28 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-
-
 struct GameLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: GameAttributes.self) { context in
             // Lock screen/banner UI goes here
             LiveActivityView(context: context)
-            
+
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    HStack{
+                    HStack {
                         Image(context.attributes.homeTeam)
                             .teamLogoModifier(frame: 40)
-                        
+
                         Text("\(context.state.gameState.homeScore)")
                             .font(.title)
                             .fontWeight(.semibold)
                     }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    HStack{
+                    HStack {
                         Text("\(context.state.gameState.awayScore)")
                             .font(.title)
                             .fontWeight(.semibold)
@@ -41,21 +39,21 @@ struct GameLiveActivity: Widget {
                     }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    HStack{
+                    HStack {
                         Image(context.state.gameState.scoringTeamName)
                             .teamLogoModifier(frame: 20)
                         Text(context.state.gameState.lastAction)
                     }
                 }
             } compactLeading: {
-                HStack{
+                HStack {
                     Image(context.attributes.homeTeam)
                         .teamLogoModifier()
                     Text("\(context.state.gameState.homeScore)")
                         .fontWeight(.semibold)
                 }
             } compactTrailing: {
-                HStack{
+                HStack {
                     Text("\(context.state.gameState.awayScore)")
                         .fontWeight(.semibold)
                     Image(context.attributes.awayTeam)
@@ -69,28 +67,5 @@ struct GameLiveActivity: Widget {
             .keylineTint(Color.red)
         }
     }
-    
+
 }
-
-//extension GameAttributes {
-//    fileprivate static var preview: GameAttributes {
-//        GameAttributes()
-//    }
-//}
-//
-//extension GameAttributes.ContentState {
-//    fileprivate static var smiley: GameAttributes.ContentState {
-//        GameAttributes.ContentState()
-//     }
-//
-//     fileprivate static var starEyes: GameAttributes.ContentState {
-//         GameAttributes.ContentState()
-//     }
-//}
-
-//#Preview("Notification", as: .content, using: GameAttributes.preview) {
-//   GameLiveActivity()
-//} contentStates: {
-//    GameAttributes.ContentState.smiley
-//    GameAttributes.ContentState.starEyes
-//}

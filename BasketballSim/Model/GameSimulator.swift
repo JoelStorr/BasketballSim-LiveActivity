@@ -43,7 +43,13 @@ final class GameSimulator {
     }
 
     func start() {
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(runGameSimulator), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(
+            timeInterval: 2,
+            target: self,
+            selector: #selector(runGameSimulator),
+            userInfo: nil,
+            repeats: true
+        )
 
     }
 
@@ -70,7 +76,6 @@ final class GameSimulator {
         possessionCount = 0
         homePossession = true
     }
-
 
     func progressGame() -> GameState {
         let pointsScored = Int.random(in: 0...3)
@@ -100,7 +105,6 @@ final class GameSimulator {
                          scoringTeamName: winningTeam.name,
                          lastAction: "The game has ended. \(winningTeam.name.capitalized) win!!")
     }
-
 
     func createLastActionString(scoringTeam: Team, pointsScored: Int) -> String {
 

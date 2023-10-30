@@ -16,5 +16,4 @@ struct GameAttributes: ActivityAttributes {
         // Fixed non-changing properties about your activity go here!
         var homeTeam: String
         var awayTeam: String
-    
 }
